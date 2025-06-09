@@ -1,0 +1,6 @@
+<h2>Photography Categories</h2>
+<ul>
+    {% for category in categories %}
+        <li><a href="{% url 'photo_gallery' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,9 @@
+<h2>{{ category.name }} Gallery</h2>
+<div style="display: flex; flex-wrap: wrap;">
+    {% for photo in photos %}
+        <div style="margin: 10px;">
+            <img src="{{ photo.image.url }}" alt="Photo" width="200">
+            <p>{{ photo.description }}</p>
+        </div>
+    {% endfor %}
+</div>
