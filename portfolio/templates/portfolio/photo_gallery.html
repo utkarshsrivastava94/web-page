@@ -1,9 +1,22 @@
-<h2>{{ category.name }} Gallery</h2>
-<div style="display: flex; flex-wrap: wrap;">
+<h2 style="text-align: center;">{{ category.name }} Gallery</h2>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
     {% for photo in photos %}
-        <div style="margin: 10px;">
-            <img src="{{ photo.image.url }}" alt="Photo" width="200">
-            <p>{{ photo.description }}</p>
+        <div style="margin: 15px; text-align: center;">
+            <img src="{{ photo.image.url }}" alt="Photo" style="width: 500px; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            {% if photo.description %}
+                <p style="margin-top: 8px;">{{ photo.description }}</p>
+            {% endif %}
         </div>
     {% endfor %}
 </div>
+{% if photos %}
+    <p>
+        <a href="{% url 'photography_portfolio' %}" class="btn btn-secondary">Back to Photography Portfolio</a>
+    </p>
+{% else %}
+    <p>
+        No photos available in this category.
+        <a href="{% url 'photography_portfolio' %}" class="btn btn-secondary">Back to Photography Portfolio</a>
+    </p>
+{% endif %}

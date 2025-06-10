@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
-from .models import Resume, Link, PhotoCategory, Photo
+from .models import Resume, Link, PhotoCategorie, Photo
 
 def home(request):
     return render(request, 'portfolio/home.html')
@@ -15,11 +15,11 @@ def work_portfolio(request):
     })
 
 def photography_portfolio(request):
-    categories = PhotoCategory.objects.all()
+    categories = PhotoCategorie.objects.all()
     return render(request, 'portfolio/photography_portfolio.html', {'categories': categories})
 
 def photo_gallery(request, category_id):
-    category = PhotoCategory.objects.get(id=category_id)
+    category = PhotoCategorie.objects.get(id=category_id)
     photos = Photo.objects.filter(category=category)
     return render(request, 'portfolio/photo_gallery.html', {
         'category': category,

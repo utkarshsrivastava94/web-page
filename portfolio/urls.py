@@ -7,3 +7,4 @@ urlpatterns = [
     path('photography/', views.photography_portfolio, name='photography_portfolio'),
     path('photography/<int:category_id>/', views.photo_gallery, name='photo_gallery'),
 ]
+
